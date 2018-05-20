@@ -35,11 +35,11 @@ public class MovementScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        stabilitySpeed = 2f;
-        rollRate = 100.0f;
-        pitchRate = 50.0f;
-        yawRate = 50.0f;
-        turningFactor = 0.1f;
+        stabilitySpeed = 3f;    // how fast the ship will regulate back to its stable position.
+        rollRate = 100.0f;  // how fast the ship will turn around the forward axis (roll).
+        pitchRate = 100.0f;  // how fast the ship will turn around the left axis (pitch).
+        yawRate = 100.0f;    // how fast the ship will turn around the up axis (yaw).
+        turningFactor = 0.01f;   // how much the roll will contribute to the turnSpeed.
     }
 
     // Update is called once per frame
