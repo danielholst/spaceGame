@@ -4,7 +4,7 @@ using UnityEngine;
 public class CameraFollowScript : MonoBehaviour
 {
     public Transform shipTransform;
-    private readonly float smoothing = 2f;
+    private readonly float smoothing = 10f;
 
     private float distBehindShip;
     private Vector3 altitude;
