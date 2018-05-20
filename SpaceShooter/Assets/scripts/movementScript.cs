@@ -30,6 +30,7 @@ public class MovementScript : MonoBehaviour
     private float rollRate;
     private float pitchRate;
     private float yawRate;
+    private float turningFactor;
 
     // Use this for initialization
     void Start()
@@ -38,6 +39,7 @@ public class MovementScript : MonoBehaviour
         rollRate = 100.0f;
         pitchRate = 50.0f;
         yawRate = 50.0f;
+        turningFactor = 0.1f;
     }
 
     // Update is called once per frame
@@ -55,15 +57,20 @@ public class MovementScript : MonoBehaviour
     // Yaw (turn) the ship with A and D keys.
     private void ShipYaw()
     {
+        float angleAroundY = 0f;
+        float turningBoost = Mathf.Clamp(1f + Mathf.Abs(transform.eulerAngles.z * turningFactor), 1f, 3f);
+
         if (Input.GetKey(KeyCode.A))
         {
             // Yaw left
-            transform.Rotate(transform.up * (-yawRate) * Time.deltaTime);
+            angleAroundY = Mathf.LerpAngle(transform.eulerAngles.y, transform.eulerAngles.y - 1f, Time.deltaTime * yawRate * turningBoost);
+            transform.eulerAngles = new Vector3(transform.eulerAngles.x, angleAroundY, transform.eulerAngles.z);
         }
         if (Input.GetKey(KeyCode.D))
         {
             // Yaw right
-            transform.Rotate(transform.up * yawRate * Time.deltaTime);
+            angleAroundY = Mathf.LerpAngle(transform.eulerAngles.y, transform.eulerAngles.y + 1f, Time.deltaTime * yawRate * turningBoost);
+            transform.eulerAngles = new Vector3(transform.eulerAngles.x, angleAroundY, transform.eulerAngles.z);
         }
     }
 
