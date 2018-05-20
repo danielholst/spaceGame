@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Script to handle the thrust of the ship
 public class ShipThrustScript : MonoBehaviour {
 
     public Rigidbody body;

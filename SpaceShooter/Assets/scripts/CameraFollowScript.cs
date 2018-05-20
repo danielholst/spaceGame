@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
+// Script to handle the camera movement so it follows the ship
 public class CameraFollowScript : MonoBehaviour
 {
     public Transform shipTransform;
