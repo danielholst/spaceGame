@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Script that handles the shooting for the player
+// shoot with the Space key.
+// Instantiates a laser beam gameObject
+
 public class ShootingScript : MonoBehaviour {
 
     public GameObject laserBeamObject;

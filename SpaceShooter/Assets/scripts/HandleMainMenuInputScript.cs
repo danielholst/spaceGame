@@ -8,30 +8,16 @@ using UnityEngine.SceneManagement;
 public class HandleMainMenuInputScript : MonoBehaviour {
 
     public int mode; // 0 = singleplayer, 1 = multiplayer, 2 = options
-	// Use this for initialization
-	void Start () {
+ 
+    // Use this for initialization
+    void Start () {
         mode = 0;
-	}
+    }
 
     // Update is called once per frame
     void Update()
     {
-
-        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            if (mode != 0)
-            {
-                mode -= 1;
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            if (mode != 2)
-            {
-                mode += 1;
-            }
-        }
+        HandleSwitchMode();
 
         // enter mode
         if (Input.GetKeyDown(KeyCode.Space))
@@ -50,5 +36,29 @@ public class HandleMainMenuInputScript : MonoBehaviour {
                 Debug.Log("Open options");
             }
         }
+    }
+
+    private void HandleSwitchMode()
+    {
+        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            if (mode != 0)
+            {
+                mode -= 1;
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            if (mode != 2)
+            {
+                mode += 1;
+            }
+        }
+    }
+
+    public int GetMode()
+    {
+        return mode;
     }
 }

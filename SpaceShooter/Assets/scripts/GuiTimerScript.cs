@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 
+// Script that handles the Gui timer
 public class GuiTimerScript : MonoBehaviour
 {
     GameObject gameManager;
