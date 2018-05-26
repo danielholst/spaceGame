@@ -30,6 +30,7 @@ public class HandleMainMenuInputScript : MonoBehaviour {
             if (mode == 1)
             {
                 Debug.Log("Start multiplayer mode");
+                SceneManager.LoadScene(2);
             }
             if (mode == 2)
             {
