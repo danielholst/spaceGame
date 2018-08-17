@@ -51,6 +51,7 @@ public class NetworkMovementScript : NetworkBehaviour
             return;
         }
 
+        
         ShipYaw();
 
         ShipRoll();
