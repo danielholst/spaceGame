@@ -1021,6 +1021,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1762050472}
   - component: {fileID: 1762050474}
+  - component: {fileID: 1762050473}
   m_Layer: 0
   m_Name: Ship
   m_TagString: Untagged
@@ -1043,6 +1044,21 @@ Transform:
   m_Father: {fileID: 1041305195}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1762050473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1762050471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11a17ca0f8af35840a938efba05f6cec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  warningTimer: 0
+  shipPosition: {x: 0, y: 0, z: 0}
+  shipDistance: 0
+  maxDistance: 0
 --- !u!114 &1762050474
 MonoBehaviour:
   m_ObjectHideFlags: 0

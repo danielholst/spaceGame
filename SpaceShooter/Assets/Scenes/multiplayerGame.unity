@@ -821,17 +821,14 @@ GameObject:
 --- !u!114 &1495215244
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114548633124078762, guid: 4020262c8acde98478e07b1408362fbb,
-    type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1495215243}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb3902141d858c949abecf2c269326cd, type: 3}
+  m_Script: {fileID: 11500000, guid: 6d4bda820644ee14ab560d88444bb8c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shipTransform: {fileID: 4243840999592718, guid: 04c9f8ffc0b05a04398509e11e02691f,
-    type: 2}
 --- !u!45 &1495215245
 Skybox:
   m_ObjectHideFlags: 0

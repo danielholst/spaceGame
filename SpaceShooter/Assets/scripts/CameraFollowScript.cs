@@ -16,7 +16,7 @@ public class CameraFollowScript : MonoBehaviour
         altitude = new Vector3(0.0f, 2.0f, 0.0f);
     }
 
-    private void Update()
+    private void LateUpdate()
     {
         Vector3 targetCamPos = shipTransform.position + (-shipTransform.forward * distBehindShip) + altitude; // target.forward * distBehindShip;
         transform.position = Vector3.Lerp(transform.position, targetCamPos, smoothing * Time.deltaTime);
