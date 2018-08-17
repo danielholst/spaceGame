@@ -19,7 +19,11 @@ public class GameManagerScript : MonoBehaviour {
  
     // Update is called once per frame
     void Update () {
+        handleGameTimer();
+    }
 
+    private void handleGameTimer()
+    {
         timer -= Time.deltaTime;
 
         // end of round
