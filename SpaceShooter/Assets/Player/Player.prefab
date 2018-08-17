@@ -76,6 +76,8 @@ GameObject:
   - component: {fileID: 65887050360010194}
   - component: {fileID: 114572047147307830}
   - component: {fileID: 114664493983757348}
+  - component: {fileID: 114057790029902016}
+  - component: {fileID: 114900994807820348}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -249,6 +251,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 1, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114057790029902016
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1873353736672930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0908dbe998539984799910c85c786bde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114089030023526738
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -349,3 +362,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   laserBeamObject: {fileID: 1274473628495184, guid: 38e512cf4f02e3a43a8a02bedaf0c225,
     type: 2}
+--- !u!114 &114900994807820348
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1873353736672930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11a17ca0f8af35840a938efba05f6cec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  warningTimer: 0
+  shipPosition: {x: 0, y: 0, z: 0}
+  shipDistance: 0
+  maxDistance: 0

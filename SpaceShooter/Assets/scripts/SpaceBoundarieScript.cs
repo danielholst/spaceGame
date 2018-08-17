@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Networking;
 using UnityEngine;
 
 /*
@@ -9,12 +10,13 @@ using UnityEngine;
  * inside the boundary during that time the ship will be destroyed.
  */
 
-public class SpaceBoundarieScript : MonoBehaviour {
+public class SpaceBoundarieScript : NetworkBehaviour {
 
+    // public variables for test
     public float warningTimer;
     public Vector3 shipPosition;
     public float shipDistance;
-    public float maxDistance; // public for test
+    public float maxDistance;
     private bool outsideBoundaries;
 
 	// Use this for initialization
@@ -65,7 +67,7 @@ public class SpaceBoundarieScript : MonoBehaviour {
         if (warningTimer < 0)
         {
             warningTimer = 5.0f;
-            // respawn logic? TODO
+            GetComponent<SpawnScript>().RpcRespawn();
             Debug.Log("Ship destroyed!");
         }
     }
@@ -83,5 +85,10 @@ public class SpaceBoundarieScript : MonoBehaviour {
         {
             Debug.Log("Not outside boundaries!");
         }
+    }
+
+    public float getSpaceRadius()
+    {
+        return maxDistance;
     }
 }

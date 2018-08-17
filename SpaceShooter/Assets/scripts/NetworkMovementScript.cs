@@ -126,11 +126,9 @@ public class NetworkMovementScript : NetworkBehaviour
         transform.eulerAngles = new Vector3(targetAngleX, transform.eulerAngles.y, targetAngleZ);
     }
 
-    // init setup function for local player 
+    // init setup function for local player, TODO
     public override void OnStartLocalPlayer()
     {
-        // setup camera to follow local player
-
         // setup color of ship based on which team local player is in
     }
 }
