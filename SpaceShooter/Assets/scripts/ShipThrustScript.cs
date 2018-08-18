@@ -1,11 +1,11 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
+using UnityEngine.Networking;
 using UnityEngine;
 
 // Script to handle the thrust of the ship
-public class ShipThrustScript : MonoBehaviour {
+public class ShipThrustScript : NetworkBehaviour {
 
-    public Rigidbody body;
+    private Rigidbody body;
     private float thrustForce;
     private float shipSlowDown;
     private int shipBoost;
@@ -15,6 +15,7 @@ public class ShipThrustScript : MonoBehaviour {
         thrustForce = 10.0f;
         shipSlowDown = 0.1f;
         shipBoost = 1;
+        body = GetComponent<Rigidbody>();
     }
 	
 	// Update is called once per frame

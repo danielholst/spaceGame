@@ -71,10 +71,9 @@ GameObject:
   - component: {fileID: 4243840999592718}
   - component: {fileID: 54418510707820610}
   - component: {fileID: 114140860732152796}
-  - component: {fileID: 114488992969678812}
-  - component: {fileID: 114089030023526738}
   - component: {fileID: 65887050360010194}
   - component: {fileID: 114572047147307830}
+  - component: {fileID: 114089030023526738}
   - component: {fileID: 114664493983757348}
   - component: {fileID: 114057790029902016}
   - component: {fileID: 114900994807820348}
@@ -295,17 +294,6 @@ MonoBehaviour:
   m_SnapThreshold: 5
   m_InterpolateRotation: 1
   m_InterpolateMovement: 1
---- !u!114 &114488992969678812
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1873353736672930}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbdf0cfcd46794b4085c6b9162a3b12e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114572047147307830
 MonoBehaviour:
   m_ObjectHideFlags: 1

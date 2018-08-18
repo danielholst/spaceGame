@@ -25,6 +25,7 @@ public class ProjectileCollisionScript : NetworkBehaviour
             Debug.Log("HIT!");
             exp1 = Instantiate(explosion1, transform.position, transform.rotation) as GameObject;
             Destroy(gameObject);
+            other.gameObject.GetComponent<HealthScript>().DecreaseHealth();
         }
     }
 }
