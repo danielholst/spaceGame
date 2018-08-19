@@ -20,12 +20,14 @@ public class ProjectileCollisionScript : NetworkBehaviour
 
     void OnCollisionEnter(Collision other)
     {
+        exp1 = Instantiate(explosion1, transform.position, transform.rotation) as GameObject;
+
         if (other.gameObject.tag == "Enemy")
         {
             Debug.Log("HIT!");
-            exp1 = Instantiate(explosion1, transform.position, transform.rotation) as GameObject;
-            Destroy(gameObject);
             other.gameObject.GetComponent<HealthScript>().DecreaseHealth();
         }
+
+        Destroy(gameObject);
     }
 }
