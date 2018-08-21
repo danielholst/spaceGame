@@ -8,11 +8,11 @@ using UnityEngine;
 public class ShootingScript : NetworkBehaviour {
 
     public GameObject laserBeamObject;
-    private Vector3 canonPosition;
+    private Vector3 beamSpawnPosition;
 
 	// Use this for initialization
 	void Start () {
-        canonPosition = new Vector3(0.0f, -1.0f, 1.0f);
+        beamSpawnPosition = new Vector3(0.0f, -1.0f, 1.0f);
 	}
 
     // Update is called once per frame
@@ -25,8 +25,16 @@ public class ShootingScript : NetworkBehaviour {
         // shoot
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            //instantate new projectile
-            Instantiate(laserBeamObject, transform.position + canonPosition, transform.rotation);
+            CmdFire();
         }
+    }
+
+    [Command]
+    private void CmdFire()
+    {
+        //instantate new projectile
+        var beam = Instantiate(laserBeamObject, transform.position + beamSpawnPosition, transform.rotation);
+        // Spawn the bullet on the Clients
+        NetworkServer.Spawn(beam);
     }
 }

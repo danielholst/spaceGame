@@ -9,25 +9,29 @@ public class ProjectileCollisionScript : NetworkBehaviour
 {
     private int playerID;
     public GameObject explosion1;
-    private GameObject player;
-    private GameObject exp1;
+    // private GameObject player;
 
     // Use this for initialization
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        //player = GameObject.FindGameObjectWithTag("Player");
     }
 
     void OnCollisionEnter(Collision other)
     {
-        exp1 = Instantiate(explosion1, transform.position, transform.rotation) as GameObject;
-
+        Debug.Log("HIT!");
         if (other.gameObject.tag == "Enemy")
         {
-            Debug.Log("HIT!");
             other.gameObject.GetComponent<HealthScript>().DecreaseHealth();
         }
+        CmdExplode();
+    }
 
+    [Command]
+    void CmdExplode()
+    {
+        var explosion = Instantiate(explosion1, transform.position, transform.rotation);
+        NetworkServer.Spawn(explosion);
         Destroy(gameObject);
     }
 }

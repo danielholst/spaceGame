@@ -286,6 +286,7 @@ GameObject:
   - component: {fileID: 890397767}
   - component: {fileID: 890397766}
   - component: {fileID: 890397765}
+  - component: {fileID: 890397768}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameManager
@@ -328,6 +329,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &890397768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 890397764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e5b78e6847d0ae4cb3d51dc22576a93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &993964525 stripped
 Transform:
   m_PrefabParentObject: {fileID: 446090, guid: 84cc3cd234dfc9d4d9d2e92c0eb0af75, type: 2}
@@ -493,7 +505,8 @@ MonoBehaviour:
   m_PlayerSpawnMethod: 0
   m_OfflineScene: 
   m_OnlineScene: 
-  m_SpawnPrefabs: []
+  m_SpawnPrefabs:
+  - {fileID: 1274473628495184, guid: 38e512cf4f02e3a43a8a02bedaf0c225, type: 2}
   m_CustomConfig: 0
   m_MaxConnections: 4
   m_ConnectionConfig:
