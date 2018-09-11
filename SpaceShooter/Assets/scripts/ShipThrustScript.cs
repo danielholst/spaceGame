@@ -9,12 +9,14 @@ public class ShipThrustScript : NetworkBehaviour {
     private float thrustForce;
     private float shipSlowDown;
     private int shipBoost;
+    private float shipSpeed;
 
     // Use this for initialization
     void Start () {
-        thrustForce = 10.0f;
+        thrustForce = 1.0f;
         shipSlowDown = 0.1f;
         shipBoost = 1;
+        shipSpeed = 0;
         body = GetComponent<Rigidbody>();
     }
 	
@@ -30,7 +32,7 @@ public class ShipThrustScript : NetworkBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            shipBoost = 3;
+            shipBoost = 2;
             Debug.Log("Boost!");
         }
 
@@ -47,11 +49,15 @@ public class ShipThrustScript : NetworkBehaviour {
     {
         if (Input.GetKey(KeyCode.W))
         {
-            body.AddForce(body.transform.forward * thrustForce * shipBoost);
+            shipSpeed += thrustForce * shipBoost;
         }
-        if (!Input.GetKey(KeyCode.W))
+        if (!Input.GetKey(KeyCode.W) && shipSpeed > 0.0f)
         {
-            body.velocity = body.velocity - shipSlowDown * body.velocity;
+            shipSpeed -= shipSlowDown;
         }
+        shipSpeed = Mathf.Clamp(shipSpeed, 0.0f, 40.0f*shipBoost);
+        body.velocity = body.transform.forward * shipSpeed;
+        Debug.Log("Speed = " + shipSpeed);
+        Debug.Log("velocity = " + body.velocity);
     }
 }
