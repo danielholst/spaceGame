@@ -40,7 +40,6 @@ GameObject:
   - component: {fileID: 54954895059356330}
   - component: {fileID: 114954737925289598}
   - component: {fileID: 114691314616138080}
-  - component: {fileID: 114612784004065130}
   - component: {fileID: 114041736144880030}
   m_Layer: 0
   m_Name: greenBeam
@@ -145,17 +144,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosion1: {fileID: 100000, guid: e0dc4d47bced6d54ab1461804114b5d0, type: 2}
---- !u!114 &114612784004065130
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1274473628495184}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60eba57e287dd7a44bf9dd92f93c8662, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114691314616138080
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -167,7 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TransformSyncMode: 1
+  m_TransformSyncMode: 3
   m_SendInterval: 0
   m_SyncRotationAxis: 7
   m_RotationSyncCompression: 0

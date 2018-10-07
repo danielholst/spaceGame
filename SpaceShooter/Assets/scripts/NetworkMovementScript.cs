@@ -48,7 +48,6 @@ public class NetworkMovementScript : NetworkBehaviour
     {
         if (!isLocalPlayer)
         {
-            Debug.Log("Not Local Player");
             return;
         }
 
