@@ -35,7 +35,7 @@ public class SpawnScript : NetworkBehaviour {
     private Vector3 GetRandomSpawnPosition()
     {
         Vector3 spawnPosition = new Vector3();
-        float maxRadius = GetComponent<SpaceBoundarieScript>().getSpaceRadius();
+        float maxRadius = GetComponent<SpaceBoundarieScript>().GetSpaceRadius();
         spawnPosition.x = Random.Range(-maxRadius / 2.0f, maxRadius / 2.0f);
         spawnPosition.y = Random.Range(-maxRadius / 10.0f, maxRadius / 10.0f); // not so much difference in elevation
         spawnPosition.z = Random.Range(-maxRadius / 2.0f, maxRadius / 2.0f);

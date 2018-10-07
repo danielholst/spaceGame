@@ -63,6 +63,8 @@ public class SpaceBoundarieScript : NetworkBehaviour {
     private void HandleWarningTimer()
     {
         warningTimer -= Time.deltaTime;
+        if (!isServer)
+            return;
 
         if (warningTimer < 0)
         {
@@ -87,7 +89,7 @@ public class SpaceBoundarieScript : NetworkBehaviour {
         }
     }
 
-    public float getSpaceRadius()
+    public float GetSpaceRadius()
     {
         return maxDistance;
     }

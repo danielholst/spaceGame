@@ -52,11 +52,7 @@ public class NetworkMovementScript : NetworkBehaviour
             return;
         }
 
-
-        
         ShipYaw();
-
-        ShipRoll();
 
         ShipPitch();
 
@@ -67,6 +63,7 @@ public class NetworkMovementScript : NetworkBehaviour
     private void ShipYaw()
     {
         float angleAroundY = 0f;
+        float angleAroundZ = 0f;
         float turningBoost = Mathf.Clamp(1f + Mathf.Abs(transform.eulerAngles.z * turningFactor), 1f, 3f);
 
         if (Input.GetKey(KeyCode.A))
@@ -74,28 +71,15 @@ public class NetworkMovementScript : NetworkBehaviour
             // Yaw left
             angleAroundY = Mathf.LerpAngle(transform.eulerAngles.y, transform.eulerAngles.y - 1f, Time.deltaTime * yawRate * turningBoost);
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, angleAroundY, transform.eulerAngles.z);
+            // Roll left
+            angleAroundZ = Mathf.LerpAngle(transform.eulerAngles.z, transform.eulerAngles.z + 1f, Time.deltaTime * rollRate);
+            transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, angleAroundZ);
         }
         if (Input.GetKey(KeyCode.D))
         {
             // Yaw right
             angleAroundY = Mathf.LerpAngle(transform.eulerAngles.y, transform.eulerAngles.y + 1f, Time.deltaTime * yawRate * turningBoost);
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, angleAroundY, transform.eulerAngles.z);
-        }
-    }
-
-    // Roll ship with left and right keys.
-    private void ShipRoll()
-    {
-        float angleAroundZ = 0f;
-
-        if (Input.GetKey("left"))
-        {
-            // Roll left
-            angleAroundZ = Mathf.LerpAngle(transform.eulerAngles.z, transform.eulerAngles.z + 1f, Time.deltaTime * rollRate);
-            transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, angleAroundZ);
-        }
-        if (Input.GetKey("right"))
-        {
             // Roll right
             angleAroundZ = Mathf.LerpAngle(transform.eulerAngles.z, transform.eulerAngles.z - 1f, Time.deltaTime * rollRate);
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, angleAroundZ);
@@ -106,13 +90,13 @@ public class NetworkMovementScript : NetworkBehaviour
     private void ShipPitch()
     {
         float angleAroundX = 0f;
-        if (Input.GetKey("up"))
+        if (Input.GetKey(KeyCode.W))
         {
             // Pitch up
             angleAroundX = Mathf.LerpAngle(transform.eulerAngles.x, transform.eulerAngles.x - 1f, Time.deltaTime * pitchRate);
             transform.eulerAngles = new Vector3(angleAroundX, transform.eulerAngles.y, transform.eulerAngles.z);
         }
-        if (Input.GetKey("down"))
+        if (Input.GetKey(KeyCode.S))
         {
             // Pitch down
             angleAroundX = Mathf.LerpAngle(transform.eulerAngles.x, transform.eulerAngles.x + 1f, Time.deltaTime * pitchRate);
@@ -132,6 +116,9 @@ public class NetworkMovementScript : NetworkBehaviour
     // init setup function for local player, TODO
     public override void OnStartLocalPlayer()
     {
+        Debug.Log("set camera target");
+        Camera.main.GetComponent<CameraFollowNetworkScript>().SetTarget(gameObject.transform);
+
         // setup color of ship based on which team local player is in
     }
 }

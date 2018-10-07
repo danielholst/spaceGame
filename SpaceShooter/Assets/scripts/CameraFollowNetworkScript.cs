@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraFollowNetworkScript : MonoBehaviour
 {
     private Transform shipTransform;
-    private readonly float smoothing = 10f;
+    private readonly float smoothing = 20f;
 
     private float distBehindShip;
     private Vector3 altitude;
@@ -21,10 +21,10 @@ public class CameraFollowNetworkScript : MonoBehaviour
         // need to set this back to null when ship is destroyed. TODO
         if (shipTransform == null)
         {
-            if (GameObject.Find("Player(Clone)") != null)
-            {
-                shipTransform = GameObject.Find("Player(Clone)").transform;
-            }
+            //if (GameObject.Find("Player(Clone)") != null)
+            //{
+            //    shipTransform = GameObject.Find("Player(Clone)").transform;
+            //}
         }
         else
         {
@@ -32,5 +32,10 @@ public class CameraFollowNetworkScript : MonoBehaviour
             transform.position = Vector3.Lerp(transform.position, targetCamPos, smoothing * Time.deltaTime);
             transform.LookAt(shipTransform);
         }
+    }
+
+    public void SetTarget(Transform playerTransform)
+    {
+        shipTransform = playerTransform;
     }
 }
