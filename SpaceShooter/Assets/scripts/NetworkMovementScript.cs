@@ -39,8 +39,8 @@ public class NetworkMovementScript : NetworkBehaviour
         stabilitySpeed = 3f;    // how fast the ship will regulate back to its stable position.
         rollRate = 100.0f;  // how fast the ship will turn around the forward axis (roll).
         pitchRate = 100.0f;  // how fast the ship will turn around the left axis (pitch).
-        yawRate = 100.0f;    // how fast the ship will turn around the up axis (yaw).
-        turningFactor = 0.01f;   // how much the roll will contribute to the turnSpeed.
+        yawRate = 1000.0f;    // how fast the ship will turn around the up axis (yaw).
+        turningFactor = 1f;   // how much the roll will contribute to the turnSpeed.
     }
 
     // Update is called once per frame
@@ -63,7 +63,7 @@ public class NetworkMovementScript : NetworkBehaviour
     {
         float angleAroundY = 0f;
         float angleAroundZ = 0f;
-        float turningBoost = Mathf.Clamp(1f + Mathf.Abs(transform.eulerAngles.z * turningFactor), 1f, 3f);
+        float turningBoost = Mathf.Clamp(1f + Mathf.Abs(transform.eulerAngles.z * turningFactor), 1f, 5f);
 
         if (Input.GetKey(KeyCode.A))
         {

@@ -14,7 +14,7 @@ public class ShootingScript : NetworkBehaviour {
     // Use this for initialization
     void Start () {
         beamSpawnPosition = new Vector3(0.0f, -1.0f, 1.0f);
-        beamVelocity = 20f;
+        beamVelocity = 100f;
     }
 
     // Update is called once per frame

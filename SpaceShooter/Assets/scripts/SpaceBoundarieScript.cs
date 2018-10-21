@@ -22,7 +22,7 @@ public class SpaceBoundarieScript : NetworkBehaviour {
 	// Use this for initialization
 	void Start () {
         warningTimer = 5.0f;
-        maxDistance = 40.0f;
+        maxDistance = 400.0f;
         outsideBoundaries = false;
     }
 	
