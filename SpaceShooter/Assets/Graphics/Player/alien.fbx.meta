@@ -1,22 +1,41 @@
 fileFormatVersion: 2
-guid: b3054ee4c1bc01344b87063f2342a14a
+guid: 34022885e48a54343bc49f1d60d977e4
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
-    100002: default
+    100002: Armature
+    100004: Bone
+    100006: Bone.001
+    100008: Bone.001_end
+    100010: Bone.002
+    100012: Bone.002_end
+    100014: Bone.003
+    100016: Bone.003_end
+    100018: Sphere
     400000: //RootNode
-    400002: default
-    2100000: defaultMat
-    2300000: default
-    3300000: default
-    4300000: default
+    400002: Armature
+    400004: Bone
+    400006: Bone.001
+    400008: Bone.001_end
+    400010: Bone.002
+    400012: Bone.002_end
+    400014: Bone.003
+    400016: Bone.003_end
+    400018: Sphere
+    2100000: No Name
+    4300000: Sphere
+    7400000: Armature|Action.001
+    7400002: Armature|jiggle
+    7400004: Armature|rotate
+    9500000: //RootNode
+    13700000: Sphere
     2186277476908879412: ImportLogs
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: defaultMat
+      name: No Name
     second: {fileID: 2100000, guid: e2d9ea77932e33d4496589c2a05cea56, type: 2}
   materials:
     importMaterials: 1
@@ -44,7 +63,35 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Armature|jiggle
+      takeName: Armature|jiggle
+      firstFrame: 0
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
@@ -92,7 +139,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
