@@ -36,10 +36,10 @@ public class NetworkMovementScript : NetworkBehaviour
     // Use this for initialization
     void Start()
     {
-        stabilitySpeed = 3f;    // how fast the ship will regulate back to its stable position.
+        stabilitySpeed = 1f;    // how fast the ship will regulate back to its stable position.
         rollRate = 100.0f;  // how fast the ship will turn around the forward axis (roll).
-        pitchRate = 100.0f;  // how fast the ship will turn around the left axis (pitch).
-        yawRate = 1000.0f;    // how fast the ship will turn around the up axis (yaw).
+        pitchRate = 50.0f;  // how fast the ship will turn around the left axis (pitch).
+        yawRate = 10.0f;    // how fast the ship will turn around the up axis (yaw).
         turningFactor = 1f;   // how much the roll will contribute to the turnSpeed.
     }
 
@@ -67,21 +67,35 @@ public class NetworkMovementScript : NetworkBehaviour
 
         if (Input.GetKey(KeyCode.A))
         {
+            float angleZ = transform.localEulerAngles.z;
+            angleZ = (angleZ > 180) ? angleZ - 360 : angleZ;
+
             // Yaw left
-            angleAroundY = Mathf.LerpAngle(transform.eulerAngles.y, transform.eulerAngles.y - 1f, Time.deltaTime * yawRate * turningBoost);
+            angleAroundY = Mathf.LerpAngle(transform.eulerAngles.y, transform.eulerAngles.y - 2f, Time.deltaTime * yawRate * turningBoost);
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, angleAroundY, transform.eulerAngles.z);
+
             // Roll left
-            angleAroundZ = Mathf.LerpAngle(transform.eulerAngles.z, transform.eulerAngles.z + 1f, Time.deltaTime * rollRate);
-            transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, angleAroundZ);
+            if (Mathf.Abs(angleZ) < 50f)
+            {
+                angleAroundZ = Mathf.LerpAngle(transform.eulerAngles.z, transform.eulerAngles.z + 1.4f, Time.deltaTime * rollRate);
+                transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, angleAroundZ);
+            }
         }
         if (Input.GetKey(KeyCode.D))
         {
+            float angleZ = transform.localEulerAngles.z;
+            angleZ = (angleZ > 180) ? angleZ - 360 : angleZ;
+
             // Yaw right
-            angleAroundY = Mathf.LerpAngle(transform.eulerAngles.y, transform.eulerAngles.y + 1f, Time.deltaTime * yawRate * turningBoost);
+            angleAroundY = Mathf.LerpAngle(transform.eulerAngles.y, transform.eulerAngles.y + 2f, Time.deltaTime * yawRate * turningBoost);
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, angleAroundY, transform.eulerAngles.z);
+
             // Roll right
-            angleAroundZ = Mathf.LerpAngle(transform.eulerAngles.z, transform.eulerAngles.z - 1f, Time.deltaTime * rollRate);
-            transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, angleAroundZ);
+            if (Mathf.Abs(angleZ) < 50f)
+            {
+                angleAroundZ = Mathf.LerpAngle(transform.eulerAngles.z, transform.eulerAngles.z - 1.4f, Time.deltaTime * rollRate);
+                transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, angleAroundZ);
+            }
         }
     }
 
@@ -91,15 +105,25 @@ public class NetworkMovementScript : NetworkBehaviour
         float angleAroundX = 0f;
         if (Input.GetKey(KeyCode.W))
         {
+            float angleX = transform.localEulerAngles.x;
+            angleX = (angleX > 180) ? angleX - 360 : angleX;
             // Pitch up
-            angleAroundX = Mathf.LerpAngle(transform.eulerAngles.x, transform.eulerAngles.x - 1f, Time.deltaTime * pitchRate);
-            transform.eulerAngles = new Vector3(angleAroundX, transform.eulerAngles.y, transform.eulerAngles.z);
+            if (Mathf.Abs(angleX) < 50f)
+            {
+                angleAroundX = Mathf.LerpAngle(transform.eulerAngles.x, transform.eulerAngles.x - 2f, Time.deltaTime * pitchRate);
+                transform.eulerAngles = new Vector3(angleAroundX, transform.eulerAngles.y, transform.eulerAngles.z);
+            }
         }
         if (Input.GetKey(KeyCode.S))
         {
+            float angleX = transform.localEulerAngles.x;
+            angleX = (angleX > 180) ? angleX - 360 : angleX;
             // Pitch down
-            angleAroundX = Mathf.LerpAngle(transform.eulerAngles.x, transform.eulerAngles.x + 1f, Time.deltaTime * pitchRate);
-            transform.eulerAngles = new Vector3(angleAroundX, transform.eulerAngles.y, transform.eulerAngles.z);
+            if (Mathf.Abs(angleX) < 50f)
+            {
+                angleAroundX = Mathf.LerpAngle(transform.eulerAngles.x, transform.eulerAngles.x + 2f, Time.deltaTime * pitchRate);
+                transform.eulerAngles = new Vector3(angleAroundX, transform.eulerAngles.y, transform.eulerAngles.z);
+            }
         }
     }
 

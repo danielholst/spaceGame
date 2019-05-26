@@ -29,6 +29,12 @@ public class ShipThrustScript : NetworkBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        if (!isLocalPlayer)
+        {
+            return;
+        }
+
         ShipBoost();
         ShipThrust();
         HandleShipLights();
