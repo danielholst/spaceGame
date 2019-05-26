@@ -195,7 +195,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &213891618
 Transform:
   m_ObjectHideFlags: 0
@@ -369,7 +369,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &791348547
 Transform:
   m_ObjectHideFlags: 0
@@ -5227,8 +5227,8 @@ MonoBehaviour:
     type: 2}
   m_AutoCreatePlayer: 1
   m_PlayerSpawnMethod: 0
-  m_OfflineScene: 
-  m_OnlineScene: 
+  m_OfflineScene: mainMenu
+  m_OnlineScene: multiplayerGame
   m_SpawnPrefabs:
   - {fileID: 1274473628495184, guid: 38e512cf4f02e3a43a8a02bedaf0c225, type: 2}
   - {fileID: 100000, guid: e0dc4d47bced6d54ab1461804114b5d0, type: 2}
@@ -5459,7 +5459,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1657472323
 Transform:
   m_ObjectHideFlags: 0
