@@ -20,7 +20,7 @@ public class GuiTimerScript : MonoBehaviour
     // Update is called once per frame
     void OnGUI()
     {
-        time = Mathf.RoundToInt(gameManager.GetComponent<GameManagerScript>().getTime());
+        time = Mathf.RoundToInt(gameManager.GetComponent<GameManagerScript>().GetTime());
         text.text = time.ToString();
     }
 }

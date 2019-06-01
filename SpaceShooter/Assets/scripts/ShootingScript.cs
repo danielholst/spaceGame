@@ -13,7 +13,7 @@ public class ShootingScript : NetworkBehaviour {
 
     // Use this for initialization
     void Start () {
-        beamSpawnPosition = new Vector3(0.0f, -1.0f, 1.0f);
+        beamSpawnPosition = new Vector3(10.0f, -2.0f, 0.0f);
         beamVelocity = 100f;
     }
 
@@ -35,7 +35,7 @@ public class ShootingScript : NetworkBehaviour {
     private void CmdFire()
     {
         //instantate new projectile
-        var beam = Instantiate(laserBeamObject, transform.position + beamSpawnPosition, transform.rotation);
+        var beam = Instantiate(laserBeamObject, transform.position + (transform.forward * 5) + (transform.up * -2), transform.rotation);
 
         // Add velocity to the bullet
         beam.GetComponent<Rigidbody>().velocity = beam.transform.forward * beamVelocity;

@@ -20,9 +20,9 @@ public class ProjectileCollisionScript : NetworkBehaviour
     void OnCollisionEnter(Collision other)
     {
         Debug.Log("HIT!");
-        if (other.gameObject.tag == "Enemy")
+        if (other.gameObject.tag == "Player")
         {
-            other.gameObject.GetComponent<HealthScript>().DecreaseHealth();
+            other.gameObject.GetComponent<DeathScript>().OnHit();
         }
         CmdExplode();
     }

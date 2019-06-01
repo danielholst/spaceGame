@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 /* Game manager (single-player)
@@ -19,10 +17,10 @@ public class GameManagerScript : MonoBehaviour {
  
     // Update is called once per frame
     void Update () {
-        handleGameTimer();
+        HandleGameTimer();
     }
 
-    private void handleGameTimer()
+    private void HandleGameTimer()
     {
         timer -= Time.deltaTime;
 
@@ -35,7 +33,7 @@ public class GameManagerScript : MonoBehaviour {
         }
     }
 
-    public float getTime()
+    public float GetTime()
     {
         return timer;
     }
