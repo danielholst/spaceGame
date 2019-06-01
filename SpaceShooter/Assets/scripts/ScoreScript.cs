@@ -8,7 +8,7 @@ using System.Collections.Generic;
  */
 public class ScoreScript : MonoBehaviour {
 
-    Dictionary<int, Player> players = new Dictionary<int, Player>();
+    //Dictionary<int, Player> players = new Dictionary<int, Player>();
     // Use this for initialization
     void Start () {
         // add all connected players to players list.

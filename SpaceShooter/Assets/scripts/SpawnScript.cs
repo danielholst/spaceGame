@@ -31,14 +31,15 @@ public class SpawnScript : NetworkBehaviour {
         }
     }
 
-    // TODO check that spawn is not inside a asteroid or to close to any enemy ship?
+    // Get random spawn position at boarder
     private Vector3 GetRandomSpawnPosition()
     {
         Vector3 spawnPosition = new Vector3();
-        float maxRadius = GetComponent<SpaceBoundarieScript>().GetSpaceRadius();
-        spawnPosition.x = Random.Range(-maxRadius / 2.0f, maxRadius / 2.0f);
-        spawnPosition.y = Random.Range(-maxRadius / 10.0f, maxRadius / 10.0f); // not so much difference in elevation
-        spawnPosition.z = Random.Range(-maxRadius / 2.0f, maxRadius / 2.0f);
+        float angle = Random.Range(0.0f, 2 * Mathf.PI);
+        float radius = GetComponent<SpaceBoundarieScript>().GetSpaceRadius();
+        spawnPosition.x = Mathf.Sin(angle)* radius;
+        spawnPosition.y = 0.0f;
+        spawnPosition.z = Mathf.Cos(angle) * radius;
 
         Debug.Log("Spawn position = " + spawnPosition);
         return spawnPosition;

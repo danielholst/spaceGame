@@ -7,7 +7,7 @@ public class CameraFollowNetworkScript : MonoBehaviour
     private Transform shipTransform;
     private float smoothing;
     private float distBehindShip;
-    public Vector3 offset;
+    private Vector3 offset;
 
     private void Start()
     {

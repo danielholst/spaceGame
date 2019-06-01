@@ -1,11 +1,10 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
 public class DeathScript : NetworkBehaviour
 {
-
+    public GameObject playerPrefab;
     public GameObject explosion1;
 
     // Use this for initialization
@@ -30,6 +29,8 @@ public class DeathScript : NetworkBehaviour
         yield return new WaitForSeconds(1f);
         Debug.Log("Player exploded");
         CmdExplode();
+        yield return new WaitForSeconds(1f);
+        CmdRespawnSvr();
     }
 
     [Command]
@@ -37,6 +38,26 @@ public class DeathScript : NetworkBehaviour
     {
         var explosion = Instantiate(explosion1, transform.position, transform.rotation);
         NetworkServer.Spawn(explosion);
-        Destroy(gameObject);
+        //StartCoroutine(Respawn());
+    }
+
+    [Command]
+    void CmdRespawnSvr()
+    {
+        Debug.Log("RESPAWWWWWN");
+        var spawn = GameObject.FindWithTag("networkManager").GetComponent<MyNetworkManager>().GetRandomSpawnPosition();
+        var newPlayer = (GameObject)Instantiate(playerPrefab, spawn, Quaternion.identity);
+        NetworkServer.Destroy(this.gameObject);
+        NetworkServer.ReplacePlayerForConnection(this.connectionToClient, newPlayer, this.playerControllerId);
+
+    }
+
+    private IEnumerator Respawn()
+    {
+        this.gameObject.SetActive(false);
+        yield return new WaitForSeconds(2);
+        Debug.Log("respawn");
+        this.gameObject.SetActive(true);
+        //GetComponent<MeshRenderer>().enabled = true;
     }
 }

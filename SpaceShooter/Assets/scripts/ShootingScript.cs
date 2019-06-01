@@ -8,12 +8,10 @@ using UnityEngine;
 public class ShootingScript : NetworkBehaviour {
 
     public GameObject laserBeamObject;
-    private Vector3 beamSpawnPosition;
     private float beamVelocity;
 
     // Use this for initialization
     void Start () {
-        beamSpawnPosition = new Vector3(10.0f, -2.0f, 0.0f);
         beamVelocity = 100f;
     }
 

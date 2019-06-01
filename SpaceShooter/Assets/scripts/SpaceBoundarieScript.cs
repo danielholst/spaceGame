@@ -22,7 +22,7 @@ public class SpaceBoundarieScript : NetworkBehaviour {
 	// Use this for initialization
 	void Start () {
         warningTimer = 5.0f;
-        maxDistance = 400.0f;
+        maxDistance = 400.0f;   // had to place this in MyNetworkManger also, reminder if changed.
         outsideBoundaries = false;
     }
 	
@@ -88,6 +88,7 @@ public class SpaceBoundarieScript : NetworkBehaviour {
             Debug.Log("Not outside boundaries!");
         }
     }
+
 
     public float GetSpaceRadius()
     {
