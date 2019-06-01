@@ -17,6 +17,16 @@ public class DeathScript : NetworkBehaviour
 		    
 	}
 
+    void OnCollisionEnter(Collision other)
+    {
+        Debug.Log("HIT!");
+        if (other.gameObject.tag == "asteroid")
+        {
+            CmdExplode();
+            OnHit();
+        }
+    }
+
     public void OnHit() {
 
         StartCoroutine(DelayExplosion());
@@ -47,6 +57,7 @@ public class DeathScript : NetworkBehaviour
         Debug.Log("RESPAWWWWWN");
         var spawn = GameObject.FindWithTag("networkManager").GetComponent<MyNetworkManager>().GetRandomSpawnPosition();
         var newPlayer = (GameObject)Instantiate(playerPrefab, spawn, Quaternion.identity);
+        newPlayer.transform.LookAt(Vector3.zero);
         NetworkServer.Destroy(this.gameObject);
         NetworkServer.ReplacePlayerForConnection(this.connectionToClient, newPlayer, this.playerControllerId);
 
